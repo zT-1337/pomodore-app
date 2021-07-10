@@ -88,9 +88,24 @@ export function PomodoreContainer() {
     })
   }
 
+  const onSessionReset = () => {
+    clearCurrentTimer();
+    setState({
+      ...state,
+      pomodoreSession: {
+        ...state.pomodoreSession,
+        isTimerRunning: false,
+        isWorking: true,
+        roundCount: 1,
+        timeLeftInSeconds: state.pomodoreSession.workIntervalLengthInSeconds
+      }
+    })
+  }
+
   return (
     <div className="PomodoreContainer">
-      <PomodoreSessionContainer roundCount={state.pomodoreSession.roundCount}></PomodoreSessionContainer>
+      <PomodoreSessionContainer roundCount={state.pomodoreSession.roundCount}
+                                onSessionReset={onSessionReset}></PomodoreSessionContainer>
       <PomodoreTimerContainer isWorking={state.pomodoreSession.isWorking}
                               isTimerRunning={state.pomodoreSession.isTimerRunning}
                               timeLeftInSeconds={state.pomodoreSession.timeLeftInSeconds}
