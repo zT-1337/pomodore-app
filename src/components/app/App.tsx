@@ -1,7 +1,9 @@
+import { TaskContainer } from "../task/TaskContainer";
+
 function App() {
   return (
     <div>
-      test
+      <TaskContainer></TaskContainer>
     </div>
   );
 }

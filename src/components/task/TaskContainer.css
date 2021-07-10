@@ -1,0 +1,43 @@
+.TaskContainer {
+  border-right: 1px solid black;
+  width: 50%;
+  height: 100%;
+  min-width: 200px;
+  min-height: 400px;
+}
+
+.TaskHeadlineContainer {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: #0077c2;
+  
+}
+
+.TaskHeadlineSpan {
+  color: #fafafa;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.addTaskButton {
+  font-size: larger;
+  font-weight: bold;
+  margin-left: auto;
+  height: 50%;
+  margin-right: 20px;
+  border: 2px solid #fafafa;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fafafa;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.addTaskButton:hover {
+  background-color: #fafafa;
+  color: black;
+}
