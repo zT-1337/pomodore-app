@@ -7,7 +7,7 @@ import { PomodoreTimerContainer } from "./PomodoreTimerContainer";
 const initialState= (): PomodoreContainerState => {
   return {
     pomodoreSession: {
-      roundCount: 0,
+      roundCount: 1,
       isWorking: true,
       workIntervalLengthInSeconds: 2,
       pauseIntervalLengthInSeconds: 2,
@@ -34,7 +34,12 @@ export function PomodoreContainer() {
         currentTimeLeftInSeconds = state.pomodoreSession.workIntervalLengthInSeconds;
         roundCountNow = roundCountNow + 1;
       } else {
-        currentTimeLeftInSeconds = state.pomodoreSession.pauseIntervalLengthInSeconds;
+        if(roundCountNow % state.pomodoreSession.roundCountUntilLongPause !== 0) {
+          currentTimeLeftInSeconds = state.pomodoreSession.pauseIntervalLengthInSeconds;
+        } else {
+          currentTimeLeftInSeconds = state.pomodoreSession.longPauseIntervalLengthInSeconds;
+        }
+        
       }
     }
 
