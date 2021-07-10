@@ -1,4 +1,5 @@
 import "./TaskContainer.css";
+import { TaskList } from "./TaskList";
 
 export function TaskContainer() {
   return (
@@ -7,9 +8,7 @@ export function TaskContainer() {
         <span className="TaskHeadlineSpan">Tasks</span>
         <button className="addTaskButton">+</button>
       </div>
-      <div>
-
-      </div>
+      <TaskList></TaskList>
     </div>
   )
 }
