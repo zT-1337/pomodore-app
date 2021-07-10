@@ -5,32 +5,14 @@ import { TaskList } from "./TaskList";
 import { Task } from "../../interfaces/models/Task";
 import { Step } from "../../interfaces/models/Step";
 
-const initialState: TaskContainerState = {
-  tasks: [
-    {
-      describtion: "do some stuff",
-      isDone: true,
-      steps: []
-    },
-    {
-      describtion: "do more stuff",
-      isDone: false,
-      steps: [
-        {
-          describtion: "do step 1",
-          isDone: true
-        },
-        {
-          describtion: "do step 2",
-          isDone: false
-        }
-      ] 
-    }
-  ]
+const initialState = (): TaskContainerState => {
+  return {
+    tasks: []
+  }
 }
 
 export function TaskContainer() {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(initialState());
 
   const onTaskDescriptionChange = (updatedTask: Task, updatedDescription: string) => {
     setState({
