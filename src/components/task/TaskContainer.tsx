@@ -134,14 +134,16 @@ export function TaskContainer() {
         <span className="TaskHeadlineSpan">Tasks</span>
         <button className="RoundButton RoundButtonWhite" onClick={onTaskAdded}>+</button>
       </div>
-      <TaskList tasks={state.tasks} 
-                onTaskDescriptionChange={onTaskDescriptionChange}
-                onTaskIsDoneToggle={onTaskIsDoneToggle}
-                onTaskDeleted={onTaskDeleted}
-                onStepDescriptionChange={onStepDescriptionChange}
-                onStepIsDoneToggle={onStepIsDoneToggle}
-                onStepDeleted={onStepDeleted}
-                onStepAdded={onStepAdded}></TaskList>
+      <div className="TaskListContainer">
+        <TaskList tasks={state.tasks} 
+                  onTaskDescriptionChange={onTaskDescriptionChange}
+                  onTaskIsDoneToggle={onTaskIsDoneToggle}
+                  onTaskDeleted={onTaskDeleted}
+                  onStepDescriptionChange={onStepDescriptionChange}
+                  onStepIsDoneToggle={onStepIsDoneToggle}
+                  onStepDeleted={onStepDeleted}
+                  onStepAdded={onStepAdded}></TaskList>
+      </div>
     </div>
   )
 }
