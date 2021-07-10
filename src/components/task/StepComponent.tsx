@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { StepComponentProps } from "../../interfaces/props/StepComponentProps";
+import { StepComponentProps } from "../../interfaces/props/task/StepComponentProps";
 
 export function StepComponent(props: StepComponentProps) {
 

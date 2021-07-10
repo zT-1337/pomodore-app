@@ -1,4 +1,4 @@
-import { TaskListProps } from "../../interfaces/props/TaskListProps";
+import { TaskListProps } from "../../interfaces/props/task/TaskListProps";
 import { TaskComponent } from "./TaskComponent";
 
 export function TaskList(props: TaskListProps) {

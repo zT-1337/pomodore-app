@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import { TaskComponentProps } from "../../interfaces/props/TaskComponentProps";
+import { TaskComponentProps } from "../../interfaces/props/task/TaskComponentProps";
 import { StepList } from "./StepList";
 
 

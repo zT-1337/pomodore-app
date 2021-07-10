@@ -1,4 +1,4 @@
-import { StepListProps } from "../../interfaces/props/StepListProps";
+import { StepListProps } from "../../interfaces/props/task/StepListProps";
 import { StepComponent } from "./StepComponent";
 
 export function StepList(props: StepListProps) {

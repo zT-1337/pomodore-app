@@ -1,5 +1,5 @@
-import { Step } from "../models/Step";
-import { Task } from "../models/Task";
+import { Step } from "../../models/Step";
+import { Task } from "../../models/Task";
 
 export interface TaskListProps {
   tasks: Task[];
