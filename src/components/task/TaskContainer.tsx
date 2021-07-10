@@ -48,13 +48,29 @@ export function TaskContainer() {
     });
   }
 
+  const onTaskIsDoneToggle = (updatedTask: Task, isDone: boolean) => {
+    setState({
+      ...state,
+      tasks: state.tasks.map((currentTask) => {
+        if(currentTask !== updatedTask) {
+          return currentTask;
+        }
+
+        return {
+          ...currentTask,
+          isDone: isDone
+        };
+      })
+    });
+  }
+
   const onStepDescriptionChange = (upatedStep: Step, updatedDescription: string) => {
     setState({
       ...state,
-      tasks: state.tasks.map((task) => {
+      tasks: state.tasks.map((currentTask) => {
         return {
-          ...task,
-          steps: task.steps.map((currentStep) => {
+          ...currentTask,
+          steps: currentTask.steps.map((currentStep) => {
             if(currentStep !== upatedStep) {
               return currentStep;
             }
@@ -69,13 +85,38 @@ export function TaskContainer() {
     })
   }
 
+  const onStepIsDoneToggle = (updatedStep: Step, isDone: boolean) => {
+    setState({
+      ...state,
+      tasks: state.tasks.map((currentTask) => {
+        return {
+          ...currentTask,
+          steps: currentTask.steps.map((currentStep) => {
+            if(currentStep !== updatedStep) {
+              return currentStep;
+            }
+
+            return {
+              ...currentStep,
+              isDone: isDone
+            }
+          })
+        }
+      })
+    });
+  }
+
   return (
     <div className="TaskContainer">
       <div className="TaskHeadlineContainer">
         <span className="TaskHeadlineSpan">Tasks</span>
         <button className="addRemoveTaskButton addRemoveTaskButtonWhite">+</button>
       </div>
-      <TaskList tasks={state.tasks} onTaskDescriptionChange={onTaskDescriptionChange} onStepDescriptionChange={onStepDescriptionChange}></TaskList>
+      <TaskList tasks={state.tasks} 
+                onTaskDescriptionChange={onTaskDescriptionChange}
+                onTaskIsDoneToggle={onTaskIsDoneToggle} 
+                onStepDescriptionChange={onStepDescriptionChange}
+                onStepIsDoneToggle={onStepIsDoneToggle}></TaskList>
     </div>
   )
 }
