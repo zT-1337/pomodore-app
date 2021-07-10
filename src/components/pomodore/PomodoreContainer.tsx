@@ -22,10 +22,24 @@ const initialState= (): PomodoreContainerState => {
 export function PomodoreContainer() {
   const [state, setState] = useState(initialState());
 
+  const onSecondPassed = () => {
+    const currentTimeLeftInSeconds = state.pomodoreSession.timeLeftInSeconds;
+    setState({
+      ...state,
+      pomodoreSession: {
+        ...state.pomodoreSession,
+        timeLeftInSeconds: currentTimeLeftInSeconds-1
+      }
+    })
+  };
+
   return (
     <div className="PomodoreContainer">
       <PomodoreSessionContainer></PomodoreSessionContainer>
-      <PomodoreTimerContainer></PomodoreTimerContainer>
+      <PomodoreTimerContainer isWorking={state.pomodoreSession.isWorking}
+                              isTimerRunning={state.pomodoreSession.isTimerRunning}
+                              timeLeftInSeconds={state.pomodoreSession.timeLeftInSeconds}
+                              onSecondPassed={onSecondPassed}></PomodoreTimerContainer>
     </div>
   )
 }
