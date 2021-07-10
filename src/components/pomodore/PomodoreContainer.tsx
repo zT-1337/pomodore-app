@@ -19,9 +19,7 @@ export function PomodoreContainer() {
 
   return (
     <div className="PomodoreContainer">
-      <div>
-        <span>Pomodore Round: {state.pomodoreSession.roundCount}</span>
-      </div>
+      <span>Pomodore Round: {state.pomodoreSession.roundCount}</span>
     </div>
   )
 }
