@@ -11,4 +11,5 @@ export interface TaskComponentProps {
   onStepDescriptionChange(upatedStep: Step, updatedDescription: string): void;
   onStepIsDoneToggle(updatedStep: Step, isDone: boolean): void;
   onStepDeleted(deletedStep: Step): void;
+  onStepAdded(extendedTask: Task): void;
 }

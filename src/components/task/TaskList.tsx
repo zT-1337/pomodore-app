@@ -11,7 +11,8 @@ export function TaskList(props: TaskListProps) {
         onTaskDeleted={props.onTaskDeleted}
         onStepDescriptionChange={props.onStepDescriptionChange}
         onStepIsDoneToggle={props.onStepIsDoneToggle}
-        onStepDeleted={props.onStepDeleted}></TaskComponent>
+        onStepDeleted={props.onStepDeleted}
+        onStepAdded={props.onStepAdded}></TaskComponent>
       )}
     </ul>
   )

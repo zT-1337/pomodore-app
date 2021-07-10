@@ -71,6 +71,13 @@ export function TaskContainer() {
     });
   }
 
+  const onTaskAdded = () => {
+    setState({
+      ...state,
+      tasks: [...state.tasks, {describtion: "", isDone: false, steps: []}]
+    })
+  }
+
   const onStepDescriptionChange = (upatedStep: Step, updatedDescription: string) => {
     setState({
       ...state,
@@ -125,11 +132,25 @@ export function TaskContainer() {
     });
   }
 
+  const onStepAdded = (extendedTask: Task) => {
+    setState({
+      ...state,
+      tasks: state.tasks.map((task) => {
+        if(task !== extendedTask) return task;
+
+        return {
+          ...task,
+          steps: [...task.steps, {describtion: "", isDone: false}]
+        }
+      })
+    })
+  }
+
   return (
     <div className="TaskContainer">
       <div className="TaskHeadlineContainer">
         <span className="TaskHeadlineSpan">Tasks</span>
-        <button className="addRemoveTaskButton addRemoveTaskButtonWhite">+</button>
+        <button className="addRemoveTaskButton addRemoveTaskButtonWhite" onClick={onTaskAdded}>+</button>
       </div>
       <TaskList tasks={state.tasks} 
                 onTaskDescriptionChange={onTaskDescriptionChange}
@@ -137,7 +158,8 @@ export function TaskContainer() {
                 onTaskDeleted={onTaskDeleted}
                 onStepDescriptionChange={onStepDescriptionChange}
                 onStepIsDoneToggle={onStepIsDoneToggle}
-                onStepDeleted={onStepDeleted}></TaskList>
+                onStepDeleted={onStepDeleted}
+                onStepAdded={onStepAdded}></TaskList>
     </div>
   )
 }
