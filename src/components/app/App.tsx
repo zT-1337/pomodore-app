@@ -1,4 +1,4 @@
-import { TaskContainer } from "../task/TaskContainer";
+import { TaskContainer } from "@components/task/TaskContainer";
 import "./App.css";
 
 function App() {
