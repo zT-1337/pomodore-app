@@ -7,6 +7,16 @@
   color: #fafafa;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+}
+
+.PomodoreContainer div span {
   font-size: larger;
   font-weight: bold;
+}
+
+.PomodoreTimer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
