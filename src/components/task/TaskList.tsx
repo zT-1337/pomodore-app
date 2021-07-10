@@ -4,7 +4,9 @@ import { TaskComponent } from "./TaskComponent";
 export function TaskList(props: TaskListProps) {
   return (
     <ul>
-      {props.tasks.map((task, index) => <TaskComponent task={task}></TaskComponent>)}
+      {props.tasks.map((task, index) => 
+        <TaskComponent task={task} key={`TaskList-${index}`}></TaskComponent>
+      )}
     </ul>
   )
 }

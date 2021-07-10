@@ -1,5 +1,5 @@
 import { Task } from "../models/Task";
 
-export interface TaskComponentProp {
+export interface TaskComponentProps {
   task: Task;
 }

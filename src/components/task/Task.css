@@ -10,9 +10,20 @@
   display: flex;
   min-height: 50px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #0077c2;
-  
+}
+
+.TaskComponent {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.TaskDescription {
+  width: 100%;
+  margin-right: 20px;
 }
 
 .TaskHeadlineSpan {
@@ -20,24 +31,48 @@
   font-size: large;
   font-weight: bold;
   margin-left: 20px;
+  width: 100%;
 }
 
-.addTaskButton {
+.addRemoveTaskButton {
+  flex-shrink: 0;
   font-size: larger;
   font-weight: bold;
-  margin-left: auto;
-  height: 50%;
   margin-right: 20px;
-  border: 2px solid #fafafa;
+  border: 2px solid;
   border-radius: 50%;
   background-color: transparent;
-  color: #fafafa;
   width: 30px;
   height: 30px;
   text-align: center;
 }
 
-.addTaskButton:hover {
+.addRemoveTaskButtonWhite {
+  border-color: #fafafa;
+  color: #fafafa;
+}
+
+.addRemoveTaskButtonWhite:hover {
   background-color: #fafafa;
+  color: black
+}
+
+.addRemoveTaskButtonBlack {
+  border-color: black;
   color: black;
+}
+
+.addRemoveTaskButtonBlack:hover {
+  background-color: black;
+  color: #fafafa;
+}
+
+.addRemoveTaskButtonRed {
+  border-color: red;
+  color: red;
+}
+
+.addRemoveTaskButtonRed:hover {
+  background-color: red;
+  color: #fafafa;
 }

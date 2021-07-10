@@ -34,7 +34,7 @@ export function TaskContainer() {
     <div className="TaskContainer">
       <div className="TaskHeadlineContainer">
         <span className="TaskHeadlineSpan">Tasks</span>
-        <button className="addTaskButton">+</button>
+        <button className="addRemoveTaskButton addRemoveTaskButtonWhite">+</button>
       </div>
       <TaskList tasks={state.tasks}></TaskList>
     </div>
