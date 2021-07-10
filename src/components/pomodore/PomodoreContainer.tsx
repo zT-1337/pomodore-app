@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PomodoreContainerState } from "../../interfaces/states/PomodoreContainerState";
 import "./Pomodore.css";
 import { PomodoreSessionContainer } from "./PomodoreSessionContainer";
-import { PomodoreTimerContainer } from "./PomodoreTimerContainer";
+import { clearCurrentTimer, PomodoreTimerContainer } from "./PomodoreTimerContainer";
 
 const initialState= (): PomodoreContainerState => {
   return {
@@ -39,7 +39,6 @@ export function PomodoreContainer() {
         } else {
           currentTimeLeftInSeconds = state.pomodoreSession.longPauseIntervalLengthInSeconds;
         }
-        
       }
     }
 
@@ -55,11 +54,36 @@ export function PomodoreContainer() {
   };
 
   const onTimerToggled = () => {
+    clearCurrentTimer();
     setState({
       ...state,
       pomodoreSession: {
         ...state.pomodoreSession,
         isTimerRunning: !state.pomodoreSession.isTimerRunning
+      }
+    })
+  }
+
+  const onTimerReset = () => {
+    clearCurrentTimer();
+    let currentTimeLeftInSeconds;
+
+    if(state.pomodoreSession.isWorking) {
+      currentTimeLeftInSeconds = state.pomodoreSession.workIntervalLengthInSeconds;
+    } else {
+      if(state.pomodoreSession.roundCount % state.pomodoreSession.roundCountUntilLongPause !== 0) {
+        currentTimeLeftInSeconds = state.pomodoreSession.pauseIntervalLengthInSeconds;
+      } else {
+        currentTimeLeftInSeconds = state.pomodoreSession.longPauseIntervalLengthInSeconds;
+      }
+    }
+
+    setState({
+      ...state,
+      pomodoreSession: {
+        ...state.pomodoreSession,
+        isTimerRunning: false,
+        timeLeftInSeconds: currentTimeLeftInSeconds
       }
     })
   }
@@ -71,7 +95,8 @@ export function PomodoreContainer() {
                               isTimerRunning={state.pomodoreSession.isTimerRunning}
                               timeLeftInSeconds={state.pomodoreSession.timeLeftInSeconds}
                               onSecondPassed={onSecondPassed}
-                              onTimerToggled={onTimerToggled}></PomodoreTimerContainer>
+                              onTimerToggled={onTimerToggled}
+                              onTimerReset={onTimerReset}></PomodoreTimerContainer>
     </div>
   )
 }

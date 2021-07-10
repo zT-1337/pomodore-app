@@ -12,12 +12,11 @@ export function PomodoreTimerContainer(props: PomodoreTimerContainerProps) {
   });
 
   const onTimerToggled = () => {
-    clearCurrentTimer();
     props.onTimerToggled();
   }
 
-  const clearCurrentTimer = () => {
-    if(timerId) clearTimeout(timerId);
+  const onTimerReset = () => {
+    props.onTimerReset();
   }
 
   const calculateTimerStatus = () => {
@@ -44,8 +43,12 @@ export function PomodoreTimerContainer(props: PomodoreTimerContainerProps) {
   return (
     <div className="PomodoreTimer">
       <span>{calculateTimerStatus()}</span>
-      <button className="RoundButton RoundButtonWhite">r</button>
+      <button className="RoundButton RoundButtonWhite" onClick={onTimerReset}>r</button>
       <button className="RoundButton RoundButtonWhite" onClick={onTimerToggled}>p</button>
     </div>
   )
+}
+
+export function clearCurrentTimer() {
+  if(timerId) clearTimeout(timerId);
 }
