@@ -1,7 +1,7 @@
 .TaskContainer {
   border-right: 1px solid black;
   width: 50%;
-  height: 100%;
+  height: 90%;
   min-width: 200px;
   min-height: 400px;
 }
@@ -32,47 +32,4 @@
   font-weight: bold;
   margin-left: 20px;
   width: 100%;
-}
-
-.addRemoveTaskButton {
-  flex-shrink: 0;
-  font-size: larger;
-  font-weight: bold;
-  margin-right: 20px;
-  border: 2px solid;
-  border-radius: 50%;
-  background-color: transparent;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-}
-
-.addRemoveTaskButtonWhite {
-  border-color: #fafafa;
-  color: #fafafa;
-}
-
-.addRemoveTaskButtonWhite:hover {
-  background-color: #fafafa;
-  color: black
-}
-
-.addRemoveTaskButtonBlack {
-  border-color: black;
-  color: black;
-}
-
-.addRemoveTaskButtonBlack:hover {
-  background-color: black;
-  color: #fafafa;
-}
-
-.addRemoveTaskButtonRed {
-  border-color: red;
-  color: red;
-}
-
-.addRemoveTaskButtonRed:hover {
-  background-color: red;
-  color: #fafafa;
 }

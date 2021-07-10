@@ -24,7 +24,7 @@ export function StepComponent(props: StepComponentProps) {
     <div className="TaskComponent">
       <input type="Checkbox" checked={props.step.isDone} onChange={onStepIsDoneToggle}></input>
       <input type="text" value={props.step.describtion} className="TaskDescription" onChange={onDescriptionChange} style={stepDescriptionStyle}></input>
-      <button className="addRemoveTaskButton addRemoveTaskButtonRed" onClick={onStepDeleted}>x</button>
+      <button className="RoundButton RoundButtonRed" onClick={onStepDeleted}>x</button>
     </div>
   )
 }

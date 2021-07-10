@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.RoundButton {
+  flex-shrink: 0;
+  font-size: larger;
+  font-weight: bold;
+  margin-right: 20px;
+  border: 2px solid;
+  border-radius: 50%;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.RoundButtonWhite {
+  border-color: #fafafa;
+  color: #fafafa;
+}
+
+.RoundButtonWhite:hover {
+  background-color: #fafafa;
+  color: black
+}
+
+.RoundButtonBlack {
+  border-color: black;
+  color: black;
+}
+
+.RoundButtonBlack:hover {
+  background-color: black;
+  color: #fafafa;
+}
+
+.RoundButtonRed {
+  border-color: red;
+  color: red;
+}
+
+.RoundButtonRed:hover {
+  background-color: red;
+  color: #fafafa;
+}

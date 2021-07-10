@@ -31,8 +31,8 @@ export function TaskComponent(props: TaskComponentProps) {
       <div className="TaskComponent">
         <input type="Checkbox" checked={props.task.isDone} onChange={onTaskIsDoneToggle}></input>
         <input type="text" value={props.task.describtion} className="TaskDescription" onChange={onDescriptionChange} style={taskDescriptionStyle}></input>
-        <button className="addRemoveTaskButton addRemoveTaskButtonBlack" onClick={onStepAdded}>+</button>
-        <button className="addRemoveTaskButton addRemoveTaskButtonRed" onClick={onTaskDeleted}>x</button>
+        <button className="RoundButton RoundButtonBlack" onClick={onStepAdded}>+</button>
+        <button className="RoundButton RoundButtonRed" onClick={onTaskDeleted}>x</button>
       </div>
       {
         props.task.steps && <StepList steps={props.task.steps} 

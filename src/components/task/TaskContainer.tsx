@@ -150,7 +150,7 @@ export function TaskContainer() {
     <div className="TaskContainer">
       <div className="TaskHeadlineContainer">
         <span className="TaskHeadlineSpan">Tasks</span>
-        <button className="addRemoveTaskButton addRemoveTaskButtonWhite" onClick={onTaskAdded}>+</button>
+        <button className="RoundButton RoundButtonWhite" onClick={onTaskAdded}>+</button>
       </div>
       <TaskList tasks={state.tasks} 
                 onTaskDescriptionChange={onTaskDescriptionChange}
