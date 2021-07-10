@@ -5,7 +5,7 @@ export function TaskList(props: TaskListProps) {
   return (
     <ul>
       {props.tasks.map((task, index) => 
-        <TaskComponent task={task} key={`TaskList-${index}`}></TaskComponent>
+        <TaskComponent task={task} key={`TaskList-${index}`} onTaskDescriptionChange={props.onTaskDescriptionChange} onStepDescriptionChange={props.onStepDescriptionChange}></TaskComponent>
       )}
     </ul>
   )
