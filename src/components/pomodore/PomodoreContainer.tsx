@@ -10,12 +10,12 @@ const initialState= (): PomodoreContainerState => {
     pomodoreSession: {
       roundCount: 1,
       isWorking: true,
-      workIntervalLengthInSeconds: 2,
-      pauseIntervalLengthInSeconds: 2,
-      longPauseIntervalLengthInSeconds: 10,
-      roundCountUntilLongPause: 4,
+      workIntervalLengthInSeconds: 1800,
+      pauseIntervalLengthInSeconds: 300,
+      longPauseIntervalLengthInSeconds: 3600,
+      roundCountUntilLongPause: 6,
       isTimerRunning: false,
-      timeLeftInSeconds: 2
+      timeLeftInSeconds: 1800
     }
   } 
 }
