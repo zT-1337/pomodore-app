@@ -1,4 +1,4 @@
-import "./TaskContainer.css";
+import "./Task.css";
 import { TaskList } from "./TaskList";
 
 export function TaskContainer() {
