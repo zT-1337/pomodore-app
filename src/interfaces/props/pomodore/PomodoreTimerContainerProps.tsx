@@ -3,4 +3,5 @@ export interface PomodoreTimerContainerProps {
   isTimerRunning: boolean;
   timeLeftInSeconds: number;
   onSecondPassed(): void;
+  onTimerToggled(): void;
 }

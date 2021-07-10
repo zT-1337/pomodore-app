@@ -33,13 +33,24 @@ export function PomodoreContainer() {
     })
   };
 
+  const onTimerToggled = () => {
+    setState({
+      ...state,
+      pomodoreSession: {
+        ...state.pomodoreSession,
+        isTimerRunning: !state.pomodoreSession.isTimerRunning
+      }
+    })
+  }
+
   return (
     <div className="PomodoreContainer">
       <PomodoreSessionContainer></PomodoreSessionContainer>
       <PomodoreTimerContainer isWorking={state.pomodoreSession.isWorking}
                               isTimerRunning={state.pomodoreSession.isTimerRunning}
                               timeLeftInSeconds={state.pomodoreSession.timeLeftInSeconds}
-                              onSecondPassed={onSecondPassed}></PomodoreTimerContainer>
+                              onSecondPassed={onSecondPassed}
+                              onTimerToggled={onTimerToggled}></PomodoreTimerContainer>
     </div>
   )
 }

@@ -1,21 +1,26 @@
 import { useEffect } from "react";
 import { PomodoreTimerContainerProps } from "../../interfaces/props/pomodore/PomodoreTimerContainerProps";
 
+let timerId: any;
+
 export function PomodoreTimerContainer(props: PomodoreTimerContainerProps) {
 
   useEffect(() => {
     if(props.isTimerRunning) {
-      setTimeout(() => {
-        props.onSecondPassed();
-      }, 1000);
+      timerId = setTimeout(props.onSecondPassed, 1000);
     }
   });
+
+  const onTimerToggled = () => {
+    if(timerId) clearTimeout(timerId);
+    props.onTimerToggled();
+  }
   
   return (
     <div className="PomodoreTimer">
       <span>{calculateTimerStatus(props.isWorking, props.timeLeftInSeconds)}</span>
       <button className="RoundButton RoundButtonWhite">r</button>
-      <button className="RoundButton RoundButtonWhite">p</button>
+      <button className="RoundButton RoundButtonWhite" onClick={onTimerToggled}>p</button>
     </div>
   )
 }
