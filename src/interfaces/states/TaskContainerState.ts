@@ -1,5 +1,5 @@
 import { Task } from "../models/Task";
 
-export interface TaskListProps {
+export interface TaskContainerState {
   tasks: Task[];
 }
