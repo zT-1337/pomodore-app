@@ -13,6 +13,10 @@ export function TaskComponent(props: TaskComponentProps) {
     props.onTaskIsDoneToggle(props.task, event.currentTarget.checked);
   }
 
+  const onTaskDeleted = () => {
+    props.onTaskDeleted(props.task);
+  }
+
   const taskDescriptionStyle: CSSProperties = {};
   if(props.task.isDone) {
     taskDescriptionStyle.textDecoration = "line-through";
@@ -24,12 +28,13 @@ export function TaskComponent(props: TaskComponentProps) {
         <input type="Checkbox" checked={props.task.isDone} onChange={onTaskIsDoneToggle}></input>
         <input type="text" value={props.task.describtion} className="TaskDescription" onChange={onDescriptionChange} style={taskDescriptionStyle}></input>
         <button className="addRemoveTaskButton addRemoveTaskButtonBlack">+</button>
-        <button className="addRemoveTaskButton addRemoveTaskButtonRed">x</button>
+        <button className="addRemoveTaskButton addRemoveTaskButtonRed" onClick={onTaskDeleted}>x</button>
       </div>
       {
         props.task.steps && <StepList steps={props.task.steps} 
         onStepDescriptionChange={props.onStepDescriptionChange}
-        onStepIsDoneToggle={props.onStepIsDoneToggle}></StepList>
+        onStepIsDoneToggle={props.onStepIsDoneToggle}
+        onStepDeleted={props.onStepDeleted}></StepList>
       }
     </div>
   )

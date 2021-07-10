@@ -7,7 +7,8 @@ export function StepList(props: StepListProps) {
       {props.steps.map((step, index) => 
         <StepComponent step={step} key={`StepList-${index}`} 
         onStepDescriptionChange={props.onStepDescriptionChange}
-        onStepIsDoneToggle={props.onStepIsDoneToggle}></StepComponent>
+        onStepIsDoneToggle={props.onStepIsDoneToggle}
+        onStepDeleted={props.onStepDeleted}></StepComponent>
       )}
     </ul>
   )

@@ -11,6 +11,10 @@ export function StepComponent(props: StepComponentProps) {
     props.onStepIsDoneToggle(props.step, event.currentTarget.checked);
   }
 
+  const onStepDeleted = () => {
+    props.onStepDeleted(props.step);
+  }
+
   const stepDescriptionStyle: CSSProperties = {};
   if(props.step.isDone) {
     stepDescriptionStyle.textDecoration = "line-through";
@@ -20,7 +24,7 @@ export function StepComponent(props: StepComponentProps) {
     <div className="TaskComponent">
       <input type="Checkbox" checked={props.step.isDone} onChange={onStepIsDoneToggle}></input>
       <input type="text" value={props.step.describtion} className="TaskDescription" onChange={onDescriptionChange} style={stepDescriptionStyle}></input>
-      <button className="addRemoveTaskButton addRemoveTaskButtonRed">x</button>
+      <button className="addRemoveTaskButton addRemoveTaskButtonRed" onClick={onStepDeleted}>x</button>
     </div>
   )
 }

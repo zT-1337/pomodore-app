@@ -48,6 +48,13 @@ export function TaskContainer() {
     });
   }
 
+  const onTaskDeleted = (deletedTask: Task) => {
+    setState({
+      ...state,
+      tasks: state.tasks.filter((task) => task !== deletedTask)
+    });
+  }
+
   const onTaskIsDoneToggle = (updatedTask: Task, isDone: boolean) => {
     setState({
       ...state,
@@ -85,6 +92,18 @@ export function TaskContainer() {
     })
   }
 
+  const onStepDeleted = (deletedStep: Step) => {
+    setState({
+      ...state,
+      tasks: state.tasks.map((task) => {
+        return {
+          ...task,
+          steps: task.steps.filter((step) => step !== deletedStep)
+        }
+      })
+    });
+  }
+
   const onStepIsDoneToggle = (updatedStep: Step, isDone: boolean) => {
     setState({
       ...state,
@@ -114,9 +133,11 @@ export function TaskContainer() {
       </div>
       <TaskList tasks={state.tasks} 
                 onTaskDescriptionChange={onTaskDescriptionChange}
-                onTaskIsDoneToggle={onTaskIsDoneToggle} 
+                onTaskIsDoneToggle={onTaskIsDoneToggle}
+                onTaskDeleted={onTaskDeleted}
                 onStepDescriptionChange={onStepDescriptionChange}
-                onStepIsDoneToggle={onStepIsDoneToggle}></TaskList>
+                onStepIsDoneToggle={onStepIsDoneToggle}
+                onStepDeleted={onStepDeleted}></TaskList>
     </div>
   )
 }

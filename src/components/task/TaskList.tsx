@@ -8,8 +8,10 @@ export function TaskList(props: TaskListProps) {
         <TaskComponent task={task} key={`TaskList-${index}`} 
         onTaskDescriptionChange={props.onTaskDescriptionChange}
         onTaskIsDoneToggle={props.onTaskIsDoneToggle}
+        onTaskDeleted={props.onTaskDeleted}
         onStepDescriptionChange={props.onStepDescriptionChange}
-        onStepIsDoneToggle={props.onStepIsDoneToggle}></TaskComponent>
+        onStepIsDoneToggle={props.onStepIsDoneToggle}
+        onStepDeleted={props.onStepDeleted}></TaskComponent>
       )}
     </ul>
   )
