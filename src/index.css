@@ -54,3 +54,17 @@ code {
   background-color: red;
   color: #fafafa;
 }
+
+.ConfirmButton {
+  border: 2px solid #0077c2;
+  background-color: #fafafa;
+  color: #0077c2;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.ConfirmButton:hover {
+  background-color: #0077c2;
+  color: #fafafa;
+}

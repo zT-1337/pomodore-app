@@ -20,3 +20,31 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+.EditPomodoreSessionContainer {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  min-width: 400px;
+  min-height: 400px;
+  transform: translate(-50%, -50%);
+}
+
+.EditPomodoreSessionContainer div {
+  padding: 20px;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+.EditPomodoreSessionContainer div label{
+  margin-right: 20px;
+  width: 100%;
+}
+
+.EditPomodoreSessionContainer div input{
+  width: 75px
+}
