@@ -1,8 +1,9 @@
 import { TaskContainer } from "../task/TaskContainer";
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <TaskContainer></TaskContainer>
     </div>
   );
