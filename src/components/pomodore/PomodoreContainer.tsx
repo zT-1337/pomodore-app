@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { EditedPomodoreSession } from "../../interfaces/models/EditedPomodoreSession";
 import { PomodoreContainerState } from "../../interfaces/states/PomodoreContainerState";
 import "./Pomodore.css";
 import { PomodoreSessionContainer } from "./PomodoreSessionContainer";
@@ -102,10 +103,34 @@ export function PomodoreContainer() {
     })
   }
 
+  const onSessionEdit = (editedSession: EditedPomodoreSession) => {
+    clearCurrentTimer();
+    setState({
+      ...state,
+      pomodoreSession: {
+        roundCount: 1,
+        isWorking: true,
+        workIntervalLengthInSeconds: editedSession.workIntervalLengthInSeconds,
+        pauseIntervalLengthInSeconds: editedSession.pauseIntervalLengthInSeconds,
+        longPauseIntervalLengthInSeconds: editedSession.longPauseIntervalLengthInSeconds,
+        roundCountUntilLongPause: editedSession.roundCountUntilLongPause,
+        isTimerRunning: false,
+        timeLeftInSeconds: editedSession.workIntervalLengthInSeconds
+      }
+    });
+  }
+
   return (
     <div className="PomodoreContainer">
       <PomodoreSessionContainer roundCount={state.pomodoreSession.roundCount}
-                                onSessionReset={onSessionReset}></PomodoreSessionContainer>
+                                initialState={{
+                                  workIntervalLengthInSeconds: state.pomodoreSession.workIntervalLengthInSeconds,
+                                  pauseIntervalLengthInSeconds: state.pomodoreSession.pauseIntervalLengthInSeconds,
+                                  longPauseIntervalLengthInSeconds: state.pomodoreSession.longPauseIntervalLengthInSeconds,
+                                  roundCountUntilLongPause: state.pomodoreSession.roundCountUntilLongPause
+                                }}
+                                onSessionReset={onSessionReset}
+                                onSessionEdit={onSessionEdit}></PomodoreSessionContainer>
       <PomodoreTimerContainer isWorking={state.pomodoreSession.isWorking}
                               isTimerRunning={state.pomodoreSession.isTimerRunning}
                               timeLeftInSeconds={state.pomodoreSession.timeLeftInSeconds}
