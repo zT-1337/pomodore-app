@@ -15,7 +15,9 @@ const initialState= (): PomodoreContainerState => {
       longPauseIntervalLengthInSeconds: 3600,
       roundCountUntilLongPause: 6,
       isTimerRunning: false,
-      timeLeftInSeconds: 1800
+      timeLeftInSeconds: 1800,
+      workMusicUrl: "",
+      pauseMusicUrl: ""
     }
   } 
 }
@@ -115,7 +117,9 @@ export function PomodoreContainer() {
         longPauseIntervalLengthInSeconds: editedSession.longPauseIntervalLengthInSeconds,
         roundCountUntilLongPause: editedSession.roundCountUntilLongPause,
         isTimerRunning: false,
-        timeLeftInSeconds: editedSession.workIntervalLengthInSeconds
+        timeLeftInSeconds: editedSession.workIntervalLengthInSeconds,
+        workMusicUrl: editedSession.workMusicUrl,
+        pauseMusicUrl: editedSession.pauseMusicUrl
       }
     });
   }
@@ -127,7 +131,9 @@ export function PomodoreContainer() {
                                   workIntervalLengthInSeconds: state.pomodoreSession.workIntervalLengthInSeconds,
                                   pauseIntervalLengthInSeconds: state.pomodoreSession.pauseIntervalLengthInSeconds,
                                   longPauseIntervalLengthInSeconds: state.pomodoreSession.longPauseIntervalLengthInSeconds,
-                                  roundCountUntilLongPause: state.pomodoreSession.roundCountUntilLongPause
+                                  roundCountUntilLongPause: state.pomodoreSession.roundCountUntilLongPause,
+                                  workMusicUrl: state.pomodoreSession.workMusicUrl,
+                                  pauseMusicUrl: state.pomodoreSession.pauseMusicUrl
                                 }}
                                 onSessionReset={onSessionReset}
                                 onSessionEdit={onSessionEdit}></PomodoreSessionContainer>

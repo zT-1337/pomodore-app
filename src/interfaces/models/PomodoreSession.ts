@@ -7,4 +7,6 @@ export interface PomodoreSession {
   roundCountUntilLongPause: number;
   isTimerRunning: boolean;
   timeLeftInSeconds: number;
+  workMusicUrl: string;
+  pauseMusicUrl: string;
 }

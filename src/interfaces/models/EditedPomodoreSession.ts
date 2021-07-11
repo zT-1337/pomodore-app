@@ -3,4 +3,6 @@ export interface EditedPomodoreSession {
   pauseIntervalLengthInSeconds: number;
   longPauseIntervalLengthInSeconds: number;
   roundCountUntilLongPause: number;
+  workMusicUrl: string;
+  pauseMusicUrl: string;
 }

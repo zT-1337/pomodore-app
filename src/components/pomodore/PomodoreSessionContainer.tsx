@@ -47,12 +47,28 @@ export function PomodoreSessionContainer(props: PomodoreSessionContainerProps) {
     return newValue;
   }
 
+  const onWorkMusicUrlChanged = (event: React.FormEvent<HTMLInputElement>) => {
+    setPomodoreSessionContainerState({
+      ...pomodoreSessionContainerState,
+      workMusicUrl: event.currentTarget.value
+    });
+  }
+
+  const onPauseMusicUrlChanged = (event: React.FormEvent<HTMLInputElement>) => {
+    setPomodoreSessionContainerState({
+      ...pomodoreSessionContainerState,
+      pauseMusicUrl: event.currentTarget.value
+    });
+  }
+
   const onApplyEdit = () => {
     props.onSessionEdit({
       workIntervalLengthInSeconds: pomodoreSessionContainerState.workIntervalLengthInSeconds,
       pauseIntervalLengthInSeconds: pomodoreSessionContainerState.pauseIntervalLengthInSeconds,
       longPauseIntervalLengthInSeconds: pomodoreSessionContainerState.longPauseIntervalLengthInSeconds,
-      roundCountUntilLongPause: pomodoreSessionContainerState.roundCountUntilLongPause
+      roundCountUntilLongPause: pomodoreSessionContainerState.roundCountUntilLongPause,
+      workMusicUrl: pomodoreSessionContainerState.workMusicUrl,
+      pauseMusicUrl: pomodoreSessionContainerState.pauseMusicUrl
     });
     setIsEditPomodoreVisible(false);
   }
@@ -80,6 +96,14 @@ export function PomodoreSessionContainer(props: PomodoreSessionContainerProps) {
           <div>
             <label htmlFor="roundCountUntilLongPause">Rounds until long pause:</label>
             <input type="text" id="roundCountUntilLongPause" value={pomodoreSessionContainerState.roundCountUntilLongPause} onChange={onRoundCountUntilLongPauseChanged}></input>
+          </div>
+          <div>
+            <label htmlFor="workMusicUrl">Work music URL:</label>
+            <input type="text" id="workMusicUrl" value={pomodoreSessionContainerState.workMusicUrl} onChange={onWorkMusicUrlChanged}></input>
+          </div>
+          <div>
+            <label htmlFor="pauseMusicUrl">Pause music URL:</label>
+            <input type="text" id="pauseMusicUrl" value={pomodoreSessionContainerState.pauseMusicUrl} onChange={onPauseMusicUrlChanged}></input>
           </div>
           <div>
             <button className="ConfirmButton" onClick={onApplyEdit}>Apply</button>

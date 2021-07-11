@@ -3,4 +3,6 @@ export interface PomodoreSessionContainerState {
   pauseIntervalLengthInSeconds: number;
   longPauseIntervalLengthInSeconds: number;
   roundCountUntilLongPause: number;
+  workMusicUrl: string;
+  pauseMusicUrl: string;
 }
