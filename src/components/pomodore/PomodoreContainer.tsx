@@ -144,7 +144,10 @@ export function PomodoreContainer() {
                               onSecondPassed={onSecondPassed}
                               onTimerToggled={onTimerToggled}
                               onTimerReset={onTimerReset}></PomodoreTimerContainer>
-      <PomodoreMusicPlayer></PomodoreMusicPlayer>
+      <PomodoreMusicPlayer  workMusicUrl={state.pomodoreSession.workMusicUrl}
+                            pauseMusicUrl={state.pomodoreSession.pauseMusicUrl}
+                            isTimerRunning={state.pomodoreSession.isTimerRunning}
+                            isWorking={state.pomodoreSession.isWorking}></PomodoreMusicPlayer>
     </div>
   )
 }
