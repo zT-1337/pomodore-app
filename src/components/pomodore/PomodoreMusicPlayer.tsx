@@ -14,7 +14,7 @@ export function PomodoreMusicPlayer(props: PomodoreMusicPlayerProps) {
 
   const videoStyle: CSSProperties = {
     position: "absolute",
-    top: "-1000px"
+    zIndex: -100
   }
   
   const onVolumeChange = (event: React.FormEvent<HTMLInputElement>) => {
