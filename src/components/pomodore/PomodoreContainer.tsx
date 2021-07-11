@@ -2,6 +2,7 @@ import { useState } from "react";
 import { EditedPomodoreSession } from "../../interfaces/models/EditedPomodoreSession";
 import { PomodoreContainerState } from "../../interfaces/states/PomodoreContainerState";
 import "./Pomodore.css";
+import { PomodoreMusicPlayer } from "./PomodoreMusicPlayer";
 import { PomodoreSessionContainer } from "./PomodoreSessionContainer";
 import { clearCurrentTimer, PomodoreTimerContainer } from "./PomodoreTimerContainer";
 
@@ -143,6 +144,7 @@ export function PomodoreContainer() {
                               onSecondPassed={onSecondPassed}
                               onTimerToggled={onTimerToggled}
                               onTimerReset={onTimerReset}></PomodoreTimerContainer>
+      <PomodoreMusicPlayer></PomodoreMusicPlayer>
     </div>
   )
 }

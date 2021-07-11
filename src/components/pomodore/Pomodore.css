@@ -46,3 +46,7 @@
 .EditPomodoreSessionContainer div input{
   width: 75px
 }
+
+.PomodoreMusicPlayer {
+  display: flex;
+}
