@@ -24,6 +24,8 @@ code {
   width: 30px;
   height: 30px;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .RoundButtonWhite {

@@ -49,4 +49,5 @@
 
 .PomodoreMusicPlayer {
   display: flex;
+  height: inherit;
 }
