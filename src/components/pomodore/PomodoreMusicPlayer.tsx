@@ -6,7 +6,6 @@ import { PomodoreMusicPlayerProps } from "../../interfaces/props/pomodore/Pomodo
 const initialState = (): PomodoreMusicPlayerState => {
   return {
     volume: 0.2,
-    isMusicRunning: true
   }
 }
 
@@ -24,21 +23,14 @@ export function PomodoreMusicPlayer(props: PomodoreMusicPlayerProps) {
     })
   }
 
-  const onMusicToggle = () => {
-    setState({
-      ...state,
-      isMusicRunning: !state.isMusicRunning
-    })
-  }
-
-  const url = props.isWorking ? props.workMusicUrl : props.pauseMusicUrl;
-  const playing = props.isTimerRunning && state.isMusicRunning ? true : false
+  const playingWorkMusic = props.isTimerRunning && props.isWorking
+  const playingPauseMusic = props.isTimerRunning && !props.isWorking
 
   return (
     <div className="PomodoreMusicPlayer">
       <input type="range" min="0" max="1" step={0.01} value={state.volume} onChange={onVolumeChange}></input>
-      <button className="RoundButton RoundButtonWhite" onClick={onMusicToggle}>p</button>
-      <ReactPlayer url={url} style={reactPlayerStyle} playing={playing}></ReactPlayer>
+      <ReactPlayer url={props.workMusicUrl} style={reactPlayerStyle} playing={playingWorkMusic} loop={true} volume={state.volume}></ReactPlayer>
+      <ReactPlayer url={props.pauseMusicUrl} style={reactPlayerStyle} playing={playingPauseMusic} loop={true} volume={state.volume}></ReactPlayer>
     </div>
   )
 }

@@ -11,14 +11,14 @@ const initialState= (): PomodoreContainerState => {
     pomodoreSession: {
       roundCount: 1,
       isWorking: true,
-      workIntervalLengthInSeconds: 1800,
-      pauseIntervalLengthInSeconds: 300,
+      workIntervalLengthInSeconds: 10,
+      pauseIntervalLengthInSeconds: 10,
       longPauseIntervalLengthInSeconds: 3600,
       roundCountUntilLongPause: 6,
       isTimerRunning: false,
-      timeLeftInSeconds: 1800,
-      workMusicUrl: "",
-      pauseMusicUrl: ""
+      timeLeftInSeconds: 10,
+      workMusicUrl: "https://www.youtube.com/watch?v=ukAvA41acc0",
+      pauseMusicUrl: "https://www.youtube.com/watch?v=t7ttLGaFCXs"
     }
   } 
 }
