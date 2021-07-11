@@ -111,14 +111,11 @@ export function PomodoreContainer() {
     setState({
       ...state,
       pomodoreSession: {
-        roundCount: 1,
-        isWorking: true,
+        ...state.pomodoreSession,
         workIntervalLengthInSeconds: editedSession.workIntervalLengthInSeconds,
         pauseIntervalLengthInSeconds: editedSession.pauseIntervalLengthInSeconds,
         longPauseIntervalLengthInSeconds: editedSession.longPauseIntervalLengthInSeconds,
         roundCountUntilLongPause: editedSession.roundCountUntilLongPause,
-        isTimerRunning: false,
-        timeLeftInSeconds: editedSession.workIntervalLengthInSeconds,
         workMusicUrl: editedSession.workMusicUrl,
         pauseMusicUrl: editedSession.pauseMusicUrl
       }
