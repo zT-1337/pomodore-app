@@ -1,6 +1,6 @@
 .PomodoreContainer {
   width: 100%;
-  min-height: 50px;
+  height: 150px;
   background-color: #0077c2;
   color: #fafafa;
   display: flex;
