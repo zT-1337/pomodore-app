@@ -1,18 +1,24 @@
-import React, { CSSProperties, useState } from "react"
+import React, { CSSProperties } from "react"
 import { PomodoreMusicPlayerState } from "../../interfaces/states/PomodoreMusicPlayerState"
 import ReactPlayer from "react-player";
 import { PomodoreMusicPlayerProps } from "../../interfaces/props/pomodore/PomodoreMusicPlayerProps";
+import { loadLocalStorageState, useLocalStorageState } from "../../utils/LocalStorageState";
+
+const PomodoreMusicPlayerLocalStorage = "PomodoreMusicPlayerLocalStorage";
 
 const initialState = (): PomodoreMusicPlayerState => {
-  return {
-    volume: 0.2,
-    isWorkVideoVisible: false,
-    isPauseVideoVisible: false
-  }
+  return loadLocalStorageState(
+    PomodoreMusicPlayerLocalStorage, 
+    {
+      volume: 0.2,
+      isWorkVideoVisible: false,
+      isPauseVideoVisible: false
+    }
+  );
 }
 
 export function PomodoreMusicPlayer(props: PomodoreMusicPlayerProps) {
-  const [state, setState] = useState(initialState());
+  const [state, setState] = useLocalStorageState(initialState(), PomodoreMusicPlayerLocalStorage);
 
   const videoHeightInPx = 180;
   const videoWidthInPx = 320;
