@@ -5,6 +5,5 @@ Additionally user can define a youtube url that gets played while working and on
 
 ## Todos
 
-- Storing current Tasks in Cookies
 - Order of Tasks/Steps changeable by Drag and Drop
 - Replace buttons by icons
