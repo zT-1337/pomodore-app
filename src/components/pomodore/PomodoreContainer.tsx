@@ -1,30 +1,34 @@
-import { useState } from "react";
 import { EditedPomodoreSession } from "../../interfaces/models/EditedPomodoreSession";
 import { PomodoreContainerState } from "../../interfaces/states/PomodoreContainerState";
+import { loadLocalStorageState, useLocalStorageState } from "../../utils/LocalStorageState";
 import "./Pomodore.css";
 import { PomodoreMusicPlayer } from "./PomodoreMusicPlayer";
 import { PomodoreSessionContainer } from "./PomodoreSessionContainer";
 import { clearCurrentTimer, PomodoreTimerContainer } from "./PomodoreTimerContainer";
 
+const PomdoreContainerLocalStorage = "PomdoreContainerLocalStorage";
+
 const initialState= (): PomodoreContainerState => {
-  return {
-    pomodoreSession: {
-      roundCount: 1,
-      isWorking: true,
-      workIntervalLengthInSeconds: 10,
-      pauseIntervalLengthInSeconds: 10,
-      longPauseIntervalLengthInSeconds: 3600,
-      roundCountUntilLongPause: 6,
-      isTimerRunning: false,
-      timeLeftInSeconds: 10,
-      workMusicUrl: "https://www.youtube.com/watch?v=ukAvA41acc0",
-      pauseMusicUrl: "https://www.youtube.com/watch?v=t7ttLGaFCXs"
-    }
-  } 
+  return loadLocalStorageState(
+    PomdoreContainerLocalStorage, 
+    {
+      pomodoreSession: {
+        roundCount: 1,
+        isWorking: true,
+        workIntervalLengthInSeconds: 10,
+        pauseIntervalLengthInSeconds: 10,
+        longPauseIntervalLengthInSeconds: 3600,
+        roundCountUntilLongPause: 6,
+        isTimerRunning: false,
+        timeLeftInSeconds: 10,
+        workMusicUrl: "https://www.youtube.com/watch?v=ukAvA41acc0",
+        pauseMusicUrl: "https://www.youtube.com/watch?v=t7ttLGaFCXs"
+      }
+    });
 }
 
 export function PomodoreContainer() {
-  const [state, setState] = useState(initialState());
+  const [state, setState] = useLocalStorageState(initialState(), PomdoreContainerLocalStorage);
 
   const onSecondPassed = () => {
     let currentTimeLeftInSeconds = state.pomodoreSession.timeLeftInSeconds - 1;

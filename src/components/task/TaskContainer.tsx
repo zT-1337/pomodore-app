@@ -1,18 +1,18 @@
 import { TaskContainerState } from "../../interfaces/states/TaskContainerState";
-import { useState } from "react";
 import "./Task.css";
 import { TaskList } from "./TaskList";
 import { Task } from "../../interfaces/models/Task";
 import { Step } from "../../interfaces/models/Step";
+import { loadLocalStorageState, useLocalStorageState } from "../../utils/LocalStorageState";
+
+const TaskContainerLocalStorage = "TaskContainerLocalStorage";
 
 const initialState = (): TaskContainerState => {
-  return {
-    tasks: []
-  }
+  return loadLocalStorageState(TaskContainerLocalStorage, {tasks: []});
 }
 
 export function TaskContainer() {
-  const [state, setState] = useState(initialState());
+  const [state, setState] = useLocalStorageState(initialState(), TaskContainerLocalStorage);
 
   const onTaskDescriptionChange = (updatedTask: Task, updatedDescription: string) => {
     setState({
